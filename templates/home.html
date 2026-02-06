@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home</title>
+    </head>
+    <body>
+        <h1 style="text-align: center">Ready to add some books?</h1>
+        <ol>
+            <!-- Iterate over book_list -->
+            {% for book in book_list %}
+            <!-- Display books -->
+            <li>
+                <h3>{{ book.title }}</h3>
+                <p>{{ book.author }}</p>
+            </li>
+
+            <hr>
+            <!-- If no items in list -->
+            {% empty %}
+            <li>No objects yet.</li>
+            {% endfor %}
+        </ol>
+    </body>
+</html>
