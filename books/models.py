@@ -6,8 +6,8 @@ class Book(models.Model):
     STATUS_CHOICES = [
         ("read", "Read"), 
         ("reading", "Reading"),
-        ("plan_to_read", "Plan to Read"), 
-        ("on_hold", "On Hold"), 
+        ("plan to read", "Plan to Read"), 
+        ("on hold", "On Hold"), 
         ("dropped", "Dropped"),
     ]
 
@@ -16,6 +16,4 @@ class Book(models.Model):
     author = models.CharField(max_length=100)
     status = models.CharField(max_length=15, choices=STATUS_CHOICES)
     bookmark = models.PositiveIntegerField(blank=True, default=0)
-    start_date = models.DateField(blank=True, null=True)
-    end_date = models.DateField(blank=True, null=True)
     added_on = models.DateTimeField(auto_now_add=True)

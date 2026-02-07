@@ -1,0 +1,22 @@
+{% extends "_base.html" %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<div style="margin: 10px">
+    <!-- Iterate over book_list -->
+    {% for book in book_list %}
+    <!-- Display books -->
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{ forloop.counter }}. {{ book.title.title }}</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">{{ book.author.title }}</h6>
+            <p class="card-text">Status: {{ book.status.title }}<br>Bookmark: {{ book.bookmark}}</p>
+            <a href="{% url 'update_book' book.id %}" class="card-link">Update</a>
+            <a href="{% url 'delete_book' book.id %}" class="card-link">Delete</a>
+        </div>
+    </div>
+    <hr>
+    {% endfor %}
+</div>
+{% endblock content %}
